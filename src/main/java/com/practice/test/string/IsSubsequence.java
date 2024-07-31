@@ -4,9 +4,19 @@ public class IsSubsequence {
         public static void main(String[] args) {
           String s = "abcz", t = "ahbgdc"; // false
 //            String s = "abc", t = "ahbgdc"; // true
-            boolean isSubsequence = isSubsequence3(s, t);
+            boolean isSubsequence = isSubsequence4(s, t);
             System.out.println("isSubsequence  ===>" + isSubsequence);
         }
+
+    private static boolean isSubsequence4(String s, String t) {
+        int i = 0;
+        for (int k = 0; k < t.length() && i < s.length(); k++) {
+            if (s.charAt(i) == t.charAt(k)) {
+                i++;
+            }
+        }
+        return i == s.length();
+    }
 
     private static boolean isSubsequence3(String s, String t) {
              int i=0,j=0;
@@ -18,14 +28,6 @@ public class IsSubsequence {
              }
              return i==s.length();
     }
-
-
-
-
-
-
-
-
 
     private static boolean isSubsequence1(String s, String t) {
             int i=0,j=0;

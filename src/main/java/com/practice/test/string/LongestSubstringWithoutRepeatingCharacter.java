@@ -12,7 +12,6 @@ public class LongestSubstringWithoutRepeatingCharacter {
 //        System.out.println("lst=====>"+lst);
           int length = longestSubstringLength(str);
           System.out.println("length===>"+length);
-
 //        O/P : “ABCDEFG”, “BCDEFGA”, and “CDEFGAB”
     }
 

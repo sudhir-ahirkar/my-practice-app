@@ -86,9 +86,9 @@ Here's a sample Java implementation of the approach:
         int maxSequenceLength = 1;
         int currentMax = 1;
         for (int num : numSet) {
-            if(numSet.contains(num+1)){
+            if(numSet.contains(num+1)) { // important
                 currentMax++;
-            }else{
+            } else {
                 maxSequenceLength = Math.max(maxSequenceLength,currentMax);
                 currentMax=1;
             }

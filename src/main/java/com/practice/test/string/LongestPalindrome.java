@@ -13,8 +13,8 @@ public class LongestPalindrome {
 //        String s = "a"; // 1
 //        String s = "aa";//2
 //        String s = "aaa"; // 3
-        String s = "bananas"; //5
-//        String s = "tattarrattat"; //2
+//        String s = "bananas"; //5
+        String s = "tattarrattacymui"; //12
         int length = longestPalindrome(s);
         System.out.println("length===>"+length);
     }
