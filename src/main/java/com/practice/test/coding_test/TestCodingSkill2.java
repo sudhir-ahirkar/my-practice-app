@@ -32,7 +32,6 @@ public class TestCodingSkill2 {
         for (int i = 0; i < str1.length(); i++) {
             System.out.println("str1.charAt(i)-'a'====>"+(str1.charAt(i)-'a'));
             System.out.println("str2.charAt(i)-'a'====>"+(str2.charAt(i)-'a'));
-
             charArr[str1.charAt(i)-'a']++;
             charArr[str2.charAt(i)-'a']--;
         }

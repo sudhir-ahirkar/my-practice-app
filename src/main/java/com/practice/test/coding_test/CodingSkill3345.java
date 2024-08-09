@@ -27,10 +27,15 @@ American red cross.
                 "American red cross Inc Org");
 
         String str = "The American red cross Inc";
+//        String str = "The American red cross Incorporation";
+
+
+        boolean result = checkStringValidOrNot(str);
+        System.out.println("result===>"+result);
 
 
 
-        System.out.println("checking0 ===>"+str.indexOf("American red cross"));
+/*        System.out.println("checking0 ===>"+str.indexOf("American red cross"));
 
         System.out.println("checking1 ===>"+str.lastIndexOf("American red cross"));
 
@@ -58,14 +63,17 @@ American red cross.
 //
 //            }
 
+        }*/
+//        System.out.println("resultLst===>"+resultLst);
+
+    }
+
+    private static boolean checkStringValidOrNot(String str) {
+        boolean result = false;
+        String[] strArr = str.split("American red cross");
+        if((strArr[0].startsWith("The") || strArr[0].startsWith("")) && strArr[1].startsWith("Inc")){
+            return true;
         }
-        System.out.println("resultLst===>"+resultLst);
-
-
-
-
-
-
-
+        return result;
     }
 }

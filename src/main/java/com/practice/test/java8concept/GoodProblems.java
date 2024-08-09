@@ -17,8 +17,8 @@ public class GoodProblems {
                 new PersonDetail("John", "New York", 26)  // Adding a duplicate name with a different age
         );
 
-        people.stream().
-                collect(Collectors.groupingBy(PersonDetail::getCity
+        people.stream()
+                .collect(Collectors.groupingBy(PersonDetail::getCity
         ,Collectors.groupingBy(PersonDetail::getName,
                         Collectors.mapping(PersonDetail::getAge,Collectors.toList()))));
 

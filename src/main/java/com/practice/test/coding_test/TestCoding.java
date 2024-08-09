@@ -2,7 +2,7 @@ package com.practice.test.coding_test;
 
 public class TestCoding {
 
-    // integer list //
+    // integer list
 
 
     // Ascenting or Desceding if both not then retrun
@@ -23,17 +23,16 @@ public class TestCoding {
         int flag = 0;
         int index = 0;
         int i = 1;
-            while(i<arr.length){
+            while(i<arr.length) {
                 if(arr[index]>arr[i]){
                     flag = 1;
                     index++;
                     i++;
-                }else{
+                } else {
                     flag=0;
                     break;
                 }
             }
-
             while(i<arr.length){
                 if(arr[index]<arr[i]){
                     flag = 2;

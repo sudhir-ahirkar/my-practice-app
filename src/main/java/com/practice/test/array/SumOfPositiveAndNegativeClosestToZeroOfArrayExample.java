@@ -3,24 +3,19 @@ package com.practice.test.array;
 public class SumOfPositiveAndNegativeClosestToZeroOfArrayExample {
   public static void main (String[] args) throws Exception 
   {
-    int arr[] = {1,7,9,3,-8,8,9,-0,7};
+    int arr[] = {1,7,9,3,-8,4,9,-0,7};
     int size = arr.length;
     int l, r, min_sum, sum, min_l_num, min_r_num;
   
 //    validateInput(size);
 //    long ld=1L;
 //    switch(ld) { /// long not supported by switch
-//      
 //    }
-    
     if(size < 2)
     {
       System.out.println("Invalid Input");
       return;
-      
     }
-   
-    
     min_l_num = 0;
     min_r_num = 1;
     min_sum = arr[0] + arr[1];

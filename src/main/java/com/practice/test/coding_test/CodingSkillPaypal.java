@@ -40,7 +40,6 @@ String input = "sudirisaengineer";
          String[] input = { "this", "th", "is", "famous", "Word", "break", "b", "r", "e", "a", "k", "br", "bre", "brea", "ak", "problem" };
          String word  = "Wordbreakproblem";
          List<String> dictLst = Stream.of(input).collect(Collectors.toList());
-
          StringBuilder builder = new StringBuilder();
         int breakPointer = 0;
         for (int i = 0; i < word.length(); i++) {
@@ -50,6 +49,7 @@ String input = "sudirisaengineer";
                 breakPointer = i;
             }
         }
+//        builder.append(word.substring(breakPointer,word.length()));
         System.out.println("builder===>"+builder.append(word.substring(breakPointer,word.length())));
     }
 

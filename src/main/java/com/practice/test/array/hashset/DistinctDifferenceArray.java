@@ -1,8 +1,7 @@
 package com.practice.test.array.hashset;
 
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 // 2670. Find the Distinct Difference Array
@@ -43,14 +42,47 @@ public class DistinctDifferenceArray {
     public static void main(String[] args) {
 //       int[] nums = {1,2,3,4,5};  //Output: [-3,-1,1,3,5]
        int[] nums = {3,2,3,4,2};  //Output: [-2,-1,0,2,3]
-        int[] arr = distinctDifferenceArray(nums);
+        int[] arr = distinctDifferenceArray1(nums);
         System.out.println(Arrays.toString(arr));
     }
-    public static int[] distinctDifferenceArray(int[] nums) {
-        for (int i = 1; i <= nums.length ; i++) {
-            Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toCollection(LinkedHashSet::new));
-            nums[i-1] = i-(set.size());
+
+    private static int[] distinctDifferenceArray1(int[] nums) {
+        Map<Integer, Long> sufFreqMap = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        int[] resultArr = new int[nums.length];
+        Set<Integer> prefCount = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            prefCount.add(nums[i]);
+            sufFreqMap.put(nums[i],sufFreqMap.get(nums[i])-1);
+            if(sufFreqMap.get(nums[i])==0){
+                sufFreqMap.remove(nums[i]);
+            }
+            resultArr[i] = prefCount.size()-sufFreqMap.size();
         }
-        return nums;
+        return resultArr;
     }
+
+
+    // Other way
+    public static int[] distinctDifferenceArray(int[] nums) {
+        Set<Integer> rightSet = new HashSet<>(nums.length);
+        Set<Integer> leftSet = new HashSet<>(nums.length);
+        int[] resultArr = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            rightSet.add(nums[i]);
+            leftSet=getLeftSet(nums,i+1);
+            resultArr[i]=rightSet.size()-leftSet.size();
+        }
+        return resultArr;
+    }
+
+    private static Set<Integer> getLeftSet(int[] nums, int i) {
+        Set<Integer> leftSet = new HashSet<>(nums.length);
+        for (int j = i; j < nums.length; j++) {
+            leftSet.add(nums[j]);
+        }
+        return leftSet;
+    }
+
+    /// Another way
+
 }

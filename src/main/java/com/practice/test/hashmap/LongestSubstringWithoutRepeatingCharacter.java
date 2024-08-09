@@ -1,4 +1,4 @@
-package com.practice.test.string;
+package com.practice.test.hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;

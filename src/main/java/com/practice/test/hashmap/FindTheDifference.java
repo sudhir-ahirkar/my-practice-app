@@ -1,6 +1,5 @@
-package com.practice.test.string.hashmap;
+package com.practice.test.hashmap;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
 

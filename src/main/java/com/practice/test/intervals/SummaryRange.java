@@ -57,13 +57,13 @@ public class SummaryRange {
         List<String> summaryRangeList = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             int start=i,end=i;
-            while(i+1<nums.length && nums[i+1]==nums[i]+1){
+            while(i+1<nums.length && nums[i+1]==nums[i]+1) {
                 i++;
                 end=i;
             }
-            if(start==end){
+            if(start==end) {
                 summaryRangeList.add(String.valueOf(nums[start]));
-            }else{
+            } else {
                 summaryRangeList.add(nums[start]+"->"+nums[end]);
             }
         }
@@ -87,14 +87,6 @@ public class SummaryRange {
         }
         return lst;
     }
-
-
-
-
-
-
-
-
 
     public static List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<>();

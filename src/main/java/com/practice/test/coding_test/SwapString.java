@@ -7,7 +7,7 @@ public class SwapString {
     }
 
     private static void permuatation1(int index, String str) {
-        if(index==str.length()-1){
+        if(index==str.length()-1) {
             System.out.println(str);
             return;
         }

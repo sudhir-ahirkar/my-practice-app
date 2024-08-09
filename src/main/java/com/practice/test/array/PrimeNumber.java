@@ -14,7 +14,7 @@ public class PrimeNumber {
     public static boolean isPrimeNumber(int num) {
        boolean isPrime = false;
         for (int i = 2; i <= num; i++) {
-            if(num%2==0){
+            if(num%2==0) {
                 return isPrime;
             }
         }

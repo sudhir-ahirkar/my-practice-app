@@ -21,7 +21,7 @@ public class Logic {
 //     count+=(!check)?val:(val*r+ val);
      count+=(count!=0)?val:(val*r+ val);
      if(val>=r) {
-       check=false;
+//       check=false;
        getValue(val,r);
      }
     return count;

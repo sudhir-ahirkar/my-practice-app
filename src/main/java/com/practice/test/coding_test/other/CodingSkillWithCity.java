@@ -21,8 +21,11 @@ public class CodingSkillWithCity {
         System.out.println("frequencyOfChar===>"+frequencyOfChar);
 
         ///================================
+        A a = new B();
+        a.m1(); // Calling m1() A class
+
         B b = new C();
-        b.m1();
+        b.m1(); // Calling m1() B class
     }
 
     private static char getFrequencyOfChar(String str){
