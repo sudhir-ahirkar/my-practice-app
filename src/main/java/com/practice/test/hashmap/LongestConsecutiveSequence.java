@@ -31,7 +31,7 @@ public class LongestConsecutiveSequence {
     public static void main(String[] args) {
        int[] nums = {100,4,200,1,3,2}; // 4
 //       int[] nums = {0,3,7,2,5,8,4,6,0,1}; // 9
-        int longestConsecutiveSeq = longestConsecutive(nums);
+        int longestConsecutiveSeq = longestConsecutive2(nums);
         System.out.println("longestConsecutiveSeq===>"+longestConsecutiveSeq);
     }
 
@@ -78,8 +78,81 @@ Here's a sample Java implementation of the approach:
 
     // Second approach
 
+    /*
+    *
+    * Let's analyze the time complexity of the provided code:
+
+Code Walkthrough:
+Check for Empty Array:
+
+java
+Copy code
+if(nums.length==0){
+    return 0;
+}
+This step is O(1), as it's just checking if the array is empty.
+Adding Elements to TreeSet:
+
+java
+Copy code
+Set<Integer> numSet = new TreeSet<>();
+for (int num : nums) {
+    numSet.add(num);
+}
+TreeSet is a balanced binary search tree (typically a Red-Black Tree), where each insertion takes O(log n) time.
+In the worst case, inserting all elements from nums into TreeSet would take O(n log n) time, where n is the number of elements in nums.
+Iterating Over the Set:
+
+java
+Copy code
+int maxSequenceLength = 1;
+int currentMax = 1;
+for (int num : numSet) {
+    if(numSet.contains(num+1)) {
+        currentMax++;
+    } else {
+        maxSequenceLength = Math.max(maxSequenceLength,currentMax);
+        currentMax=1;
+    }
+}
+This loop iterates over each element in the TreeSet, so it runs O(n) times.
+
+The numSet.contains(num+1) check is an O(log n) operation for each element since it's a lookup in a TreeSet.
+
+The overall time complexity of this loop is O(n log n) due to the contains operation inside the loop.
+
+Overall Time Complexity:
+The most time-consuming parts of the code are the insertion of elements into the TreeSet and the iteration with the contains operation.
+
+The total time complexity of the code is:
+
+O(n log n) for inserting all elements into the TreeSet.
+O(n log n) for iterating over the TreeSet and performing the contains check.
+Thus, the overall time complexity of the code is O(n log n).
+    * */
+
+    // lets try to solve below problem with O(n)
     public static int longestConsecutive1(int[] nums) {
         Set<Integer> numSet = new TreeSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+        int maxSequenceLength = 1;
+        int currentMax = 1;
+        for (int num : numSet) {
+            if(numSet.contains(num+1)) { // important
+                currentMax++;
+            } else {
+                maxSequenceLength = Math.max(maxSequenceLength,currentMax);
+                currentMax=1;
+            }
+        }
+        return maxSequenceLength;
+    }
+
+
+    public static int longestConsecutive2(int[] nums) {
+        HashSet<Integer> numSet = new LinkedHashSet<>();
         for (int num : nums) {
             numSet.add(num);
         }

@@ -1,10 +1,9 @@
 package com.practice.test.coding_test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CodingSkill3345 {
+public class CodingSkillPayPalFirst {
 
     /*
     *
@@ -26,8 +25,8 @@ American red cross.
                 "American red cross Inc","American red cross Incorporation", "American red cross.",
                 "American red cross Inc Org");
 
-        String str = "The American red cross Inc";
-//        String str = "The American red cross Incorporation";
+//        String str = "The American red cross Inc";
+        String str = "The American red cross Incorporation";
 
 
         boolean result = checkStringValidOrNot(str);
@@ -71,7 +70,18 @@ American red cross.
     private static boolean checkStringValidOrNot(String str) {
         boolean result = false;
         String[] strArr = str.split("American red cross");
-        if((strArr[0].startsWith("The") || strArr[0].startsWith("")) && strArr[1].startsWith("Inc")){
+        for (String st : strArr){
+            System.out.println("st===>"+st);
+            if(st.startsWith("The")){
+                System.out.println("st start with ==>"+st);
+            }
+
+            if(st.endsWith("The")){
+                System.out.println("st end with ==>"+st);
+            }
+        }
+        if((strArr[0].startsWith("The") || strArr[0].endsWith("The") || strArr[0].startsWith(""))
+                || strArr[1].startsWith("Inc")){
             return true;
         }
         return result;

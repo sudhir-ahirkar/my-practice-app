@@ -27,10 +27,10 @@ public class FindDisappearedNumbers {
         int[] nums = {4, 3, 2, 7, 8, 2, 3, 1}; // [5, 6]
 //        int[] nums = {1, 1}; // [2]
 
-        int[] ar1 = myWay1(nums);
-        System.out.println(Arrays.toString(ar1));
-//        List<Integer> resultLst = findDisappearedNumbers(nums);
-//        System.out.println("resultLst====>" + resultLst);
+//        int[] ar1 = myWay1(nums);
+//        System.out.println(Arrays.toString(ar1));
+        List<Integer> resultLst = findDisappearedNumbers(nums);
+        System.out.println("resultLst====>" + resultLst);
     }
 
     private static int[] myWay(int[] nums) {

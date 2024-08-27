@@ -20,12 +20,12 @@ Output: false
 Explanation: 14 is not ugly since it includes the prime factor 7.
 */
 public class SingleNumber {
+
     public static void main(String[] args) {
         int n = 14;
         boolean isUgly = isUgly(n);
         System.out.println("isUgly======>"+isUgly);
     }
-
     /*
 Start with the number 8.
 Check if it's less than or equal to 0. It's not, so continue.
@@ -35,15 +35,15 @@ Now, check if 2 is divisible by 2 again. It is, so divide 2 by 2, which gives 1.
 Check if 1 is equal to 1. It is, so return true.
 */
     public static boolean isUgly(int num) {
-        if(num<=0 ) {
+        if (num <= 0) {
             return false;
         }
-        int[] factors = {2,3,5};
-        for (int factor : factors){
-            while(num%factor==0){
-                num/=factor;
+        int[] factors = {2, 3, 5};
+        for (int factor : factors) {
+            while (num % factor == 0) {
+                num /= factor;
             }
         }
-        return num==1;
+        return num == 1;
     }
 }

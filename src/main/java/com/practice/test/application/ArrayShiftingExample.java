@@ -13,14 +13,18 @@ public class ArrayShiftingExample {
     int arr[] = {-1, 2, -3, 4, 5, 6, -7, 8, 9, -10};
     int n = arr.length;
 
-    rearrangArr1(arr);
-//    rearrangArr(arr);
+//    rearrangArr1(arr);
+//    rearrangArr2(arr);
+//    rearrangeArr3(arr);
+    rearrange(arr);
+
+
     printArray(arr, n);
   }
 
 
   //Approach 1 : +ve element will loose there position while rearranging elements
-  static void rearrangArr(int[] arr) {
+  static void rearrangArr1(int[] arr) {
     int index = 0;
     for(int i = 0; i < arr.length; i++) {
       if(arr[i]<0){
@@ -31,10 +35,25 @@ public class ArrayShiftingExample {
       }
     }
   }
+
+  //Approach 1 : -ve element will be loose, there position while rearranging elements
+  static void rearrangArr2(int[] arr) {
+    int index = 0;
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i]>0){
+        int temp = arr[i];
+        arr[i]=arr[index];
+        arr[index]=temp;
+        index++;
+      }
+    }
+  }
 // o/p : -1 -3 -7 -10 5 6 2 8 9 4
 
   //Approach 2  : +ve element will not the loose there position while rearranging elements
-  static void rearrangArr1(int[] arr){
+  static void rearrangeArr3(int[] arr){
+//    int arr[] = {-1, 2, -3, 4, 5, 6, -7, 8, 9, -10};
+
     int i=0,j=i+1;
     long l = Arrays.stream(arr).filter(e->e<0).count();
     while(i!=l){
@@ -53,16 +72,16 @@ public class ArrayShiftingExample {
 // o/p: -1 -3 -7 -10 2 4 5 6 8 9
 
 
-  //
+  // rearrange the all +ve number at left side and maintain -ve number in order at right side
   private static void rearrange(int[] arr) {
     int i=0, j = i+1, temp = 0;
-   long l= Arrays.stream(arr).filter(e->e<0).count();
+   long l= Arrays.stream(arr).filter(e->e>0).count();
     while(i!=l) {
-      if (arr[i] < 0) {
+      if (arr[i] >= 0) {
         i++;
         j=i+1;
       }else {
-        if (arr[i] > 0 ) {
+        if (arr[i] < 0 ) {
           temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;

@@ -48,23 +48,44 @@ public class SummaryRange {
 
     public static void main(String[] args) {
 //        int[] nums = {0,1,2,4,5,7}; //[0->2, 4->5, 7]
-        int[] nums = {0,2,3,4,6,8,9}; //[0, 2->4, 6, 8->9]
-       List<String> rangesLst =  summaryRanges2(nums);
-       System.out.println("rangesLst=====>"+rangesLst);
+        int[] nums = {0, 2, 3, 4, 6, 8, 9}; //[0, 2->4, 6, 8->9]
+        List<String> rangesLst = summaryRangesTest(nums);
+        System.out.println("rangesLst=====>" + rangesLst);
     }
+
+    public static List<String> summaryRangesTest(int[] nums) {
+        List<String> resLst = new ArrayList<>();
+        for (int i = 0; i <= nums.length - 1; i++) {
+            int start = nums[i];
+            int end = nums[i];
+            while (i<nums.length-1 && (nums[i] + 1 == nums[i + 1])) {
+                end = nums[++i];
+            }
+            if (start == end) {
+                resLst.add(String.valueOf(start));
+            } else {
+                resLst.add(start + "->" + end);
+            }
+        }
+        return resLst;
+    }
+
+/*    private static List<String> summaryRanges4(int[] nums) {
+
+    }*/
 
     private static List<String> summaryRanges2(int[] nums) {
         List<String> summaryRangeList = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
-            int start=i,end=i;
-            while(i+1<nums.length && nums[i+1]==nums[i]+1) {
+            int start = i, end = i;
+            while (i + 1 < nums.length && nums[i + 1] == nums[i] + 1) {
                 i++;
-                end=i;
+                end = i;
             }
-            if(start==end) {
+            if (start == end) {
                 summaryRangeList.add(String.valueOf(nums[start]));
             } else {
-                summaryRangeList.add(nums[start]+"->"+nums[end]);
+                summaryRangeList.add(nums[start] + "->" + nums[end]);
             }
         }
         return summaryRangeList;
@@ -75,14 +96,14 @@ public class SummaryRange {
         for (int i = 0; i < nums.length; i++) {
             int start = i;
             int end = i;
-            while(i+1<nums.length && nums[i+1]==nums[i]+1){
+            while (i + 1 < nums.length && nums[i + 1] == nums[i] + 1) {
                 i++;
-             end = i;
+                end = i;
             }
-            if(start==end){
+            if (start == end) {
                 lst.add(String.valueOf(nums[start]));
-            }else{
-                lst.add(nums[start]+"->"+nums[end]);
+            } else {
+                lst.add(nums[start] + "->" + nums[end]);
             }
         }
         return lst;

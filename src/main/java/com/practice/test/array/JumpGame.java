@@ -25,8 +25,11 @@ Constraints:
 public class JumpGame {
     public static void main(String[] args) {
 //        int[] nums = {2,3,1,1,4};
-        int[] nums = {3,2,1,0,4};
-        boolean isCanJump = canJump(nums);
+//        int[] nums = {3,2,1,0,4};
+        int[] nums =  {1,2};
+//        int[] nums =  {0,1};
+
+        boolean isCanJump = canJump1(nums);
        System.out.println("isCanJump====>"+isCanJump);
     }
 
@@ -44,13 +47,34 @@ Returning the Result: If we successfully iterate through the array without reach
     *
     * */
     public static boolean canJump(int[] nums) {
-        int maxReach = Integer.MAX_VALUE;
-        for (int i = 0; i < nums.length; i++) {
+        int maxReach = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length-1; i++) {
             maxReach = Math.max(maxReach,i+nums[i]);
             if(maxReach>=nums[nums.length-1]){
                 return true;
             }
         }
         return false;
+    }
+
+    public static boolean canJump1(int[] nums) {
+        int farthest = 0; // Initialize the farthest reachable index to 0
+
+        // Traverse each index in the array
+        for (int i = 0; i < nums.length; i++) {
+            // If current index is greater than the farthest reachable index, return false
+            if (i > farthest) {
+                return false;
+            }
+            // Update the farthest index that can be reached
+            farthest = Math.max(farthest, i + nums[i]);
+
+            // If farthest index is greater than or equal to the last index, return true
+            if (farthest >= nums.length - 1) {
+                return true;
+            }
+        }
+
+        return false;  // If loop completes, return false
     }
 }

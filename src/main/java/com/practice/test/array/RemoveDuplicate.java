@@ -65,7 +65,8 @@ public class RemoveDuplicate {
             if(nums[index]==nums[i]){
                 continue;
             }
-            nums[++index]=nums[i];
+            index++;
+            nums[index]=nums[i];
         }
       return index+1;
     }

@@ -37,7 +37,7 @@ public class PlusOne {
 //          int[] arr = {9,9};
 //          int[] arr = {9,9,9};
           int[] arr = {1, 2, 3, 9};
-          int[] resulArr =plusOne(arr);
+          int[] resulArr = plusOne(arr);
           Utility.printArr(resulArr);
     }
     private static int[] plusOne(int[] arr) {

@@ -3,7 +3,7 @@ package com.practice.test.array;
 public class SumOfPositiveAndNegativeClosestToZeroOfArrayExample {
   public static void main (String[] args) throws Exception 
   {
-    int arr[] = {1,7,9,3,-8,4,9,-0,7};
+    int arr[] = {11,17,9,3,-8,4,9,-2,7};
     int size = arr.length;
     int l, r, min_sum, sum, min_l_num, min_r_num;
   

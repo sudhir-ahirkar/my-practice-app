@@ -50,7 +50,6 @@ FindIndexOfSumInArray {
 
   // Time complexity is O(n2)
     private static int[] getIndexArr(int[] arr, int sum) {
-   
     int[] indexArr=new int[2];
     for (int j = 0; j < arr.length; j++) {
       for (int j2 = j+1; j2 < arr.length; j2++) {
@@ -61,7 +60,7 @@ FindIndexOfSumInArray {
         }
       }
     }
-    return null;
+    return indexArr;
   }
 
 }
